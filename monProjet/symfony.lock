@@ -81,6 +81,9 @@
     "egulias/email-validator": {
         "version": "2.1.22"
     },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.1.1"
+    },
     "monolog/monolog": {
         "version": "1.25.5"
     },
@@ -304,9 +307,6 @@
     "symfony/options-resolver": {
         "version": "v4.4.15"
     },
-    "symfony/orm-pack": {
-        "version": "v2.0.0"
-    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -497,6 +497,9 @@
     },
     "twig/twig": {
         "version": "v3.1.0"
+    },
+    "webimpress/safe-writer": {
+        "version": "2.1.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"
