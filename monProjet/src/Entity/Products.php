@@ -50,12 +50,12 @@ class Products
     private $products_price;
 
     /**
-     * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="products_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="products", orphanRemoval=true)
      */
     private $orderdetails;
 
     /**
-     * @ORM\OneToMany(targetEntity=Purchases::class, mappedBy="products_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Purchases::class, mappedBy="products", orphanRemoval=true)
      */
     private $purchases;
 
@@ -63,7 +63,7 @@ class Products
      * @ORM\ManyToOne(targetEntity=Rubrique::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $rubrique_id;
+    private $rubrique;
 
     public function __construct()
     {
@@ -160,7 +160,7 @@ class Products
     {
         if (!$this->orderdetails->contains($orderdetail)) {
             $this->orderdetails[] = $orderdetail;
-            $orderdetail->setProductsId($this);
+            $orderdetail->setProducts($this);
         }
 
         return $this;
@@ -170,8 +170,8 @@ class Products
     {
         if ($this->orderdetails->removeElement($orderdetail)) {
             // set the owning side to null (unless already changed)
-            if ($orderdetail->getProductsId() === $this) {
-                $orderdetail->setProductsId(null);
+            if ($orderdetail->getProducts() === $this) {
+                $orderdetail->setProducts(null);
             }
         }
 
@@ -190,7 +190,7 @@ class Products
     {
         if (!$this->purchases->contains($purchase)) {
             $this->purchases[] = $purchase;
-            $purchase->setProductsId($this);
+            $purchase->setProducts($this);
         }
 
         return $this;
@@ -200,22 +200,22 @@ class Products
     {
         if ($this->purchases->removeElement($purchase)) {
             // set the owning side to null (unless already changed)
-            if ($purchase->getProductsId() === $this) {
-                $purchase->setProductsId(null);
+            if ($purchase->getProducts() === $this) {
+                $purchase->setProducts(null);
             }
         }
 
         return $this;
     }
 
-    public function getRubriqueId(): ?Rubrique
+    public function getRubrique(): ?Rubrique
     {
-        return $this->rubrique_id;
+        return $this->rubrique;
     }
 
-    public function setRubriqueId(?Rubrique $rubrique_id): self
+    public function setRubrique(?Rubrique $rubrique): self
     {
-        $this->rubrique_id = $rubrique_id;
+        $this->rubrique = $rubrique;
 
         return $this;
     }

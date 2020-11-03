@@ -18,7 +18,7 @@ class Delivery
     private $id;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $delivery_date;
 
@@ -30,12 +30,12 @@ class Delivery
     /**
      * @ORM\ManyToOne(targetEntity=Orderdetail::class, inversedBy="deliveries")
      */
-    private $orderdetail_id;
+    private $orderdetail;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="deliveries")
      */
-    private $customers_id;
+    private $customers;
 
     public function getId(): ?int
     {
@@ -66,26 +66,26 @@ class Delivery
         return $this;
     }
 
-    public function getOrderdetailId(): ?Orderdetail
+    public function getOrderdetail(): ?Orderdetail
     {
-        return $this->orderdetail_id;
+        return $this->orderdetail;
     }
 
-    public function setOrderdetailId(?Orderdetail $orderdetail_id): self
+    public function setOrderdetail(?Orderdetail $orderdetail): self
     {
-        $this->orderdetail_id = $orderdetail_id;
+        $this->orderdetail = $orderdetail;
 
         return $this;
     }
 
-    public function getCustomersId(): ?Customers
+    public function getCustomers(): ?Customers
     {
-        return $this->customers_id;
+        return $this->customers;
     }
 
-    public function setCustomersId(?Customers $customers_id): self
+    public function setCustomers(?Customers $customers): self
     {
-        $this->customers_id = $customers_id;
+        $this->customers = $customers;
 
         return $this;
     }

@@ -25,12 +25,17 @@ class Rubrique
     private $rubrique_name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Rubrique::class)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $rubrique_sous;
+    private $rubrique_picture;
 
     /**
-     * @ORM\OneToMany(targetEntity=Products::class, mappedBy="rubrique_id", orphanRemoval=true)
+     * @ORM\ManyToOne(targetEntity=Rubrique::class)
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Products::class, mappedBy="rubrique", orphanRemoval=true)
      */
     private $products;
 
@@ -56,14 +61,26 @@ class Rubrique
         return $this;
     }
 
-    public function getRubriqueSous(): ?self
+    public function getRubriquePicture(): ?string
     {
-        return $this->rubrique_sous;
+        return $this->rubrique_picture;
     }
 
-    public function setRubriqueSous(?self $rubrique_sous): self
+    public function setRubriquePicture(?string $rubrique_picture): self
     {
-        $this->rubrique_sous = $rubrique_sous;
+        $this->rubrique_picture = $rubrique_picture;
+
+        return $this;
+    }
+
+    public function getParent(): ?self
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?self $parent): self
+    {
+        $this->parent = $parent;
 
         return $this;
     }
@@ -80,7 +97,7 @@ class Rubrique
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->setRubriqueId($this);
+            $product->setRubrique($this);
         }
 
         return $this;
@@ -90,8 +107,8 @@ class Rubrique
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getRubriqueId() === $this) {
-                $product->setRubriqueId(null);
+            if ($product->getRubrique() === $this) {
+                $product->setRubrique(null);
             }
         }
 

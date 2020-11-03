@@ -58,7 +58,7 @@ class Totalorder
      * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="totalorders")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $customers_id;
+    private $customers;
 
     /**
      * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="totalorder_id", orphanRemoval=true)
@@ -159,14 +159,14 @@ class Totalorder
         return $this;
     }
 
-    public function getCustomersId(): ?Customers
+    public function getCustomers(): ?Customers
     {
-        return $this->customers_id;
+        return $this->customers;
     }
 
-    public function setCustomersId(?Customers $customers_id): self
+    public function setCustomers(?Customers $customers): self
     {
-        $this->customers_id = $customers_id;
+        $this->customers = $customers;
 
         return $this;
     }
@@ -183,7 +183,7 @@ class Totalorder
     {
         if (!$this->orderdetails->contains($orderdetail)) {
             $this->orderdetails[] = $orderdetail;
-            $orderdetail->setTotalorderId($this);
+            $orderdetail->setTotalorder($this);
         }
 
         return $this;
@@ -193,8 +193,8 @@ class Totalorder
     {
         if ($this->orderdetails->removeElement($orderdetail)) {
             // set the owning side to null (unless already changed)
-            if ($orderdetail->getTotalorderId() === $this) {
-                $orderdetail->setTotalorderId(null);
+            if ($orderdetail->getTotalorder() === $this) {
+                $orderdetail->setTotalorder(null);
             }
         }
 

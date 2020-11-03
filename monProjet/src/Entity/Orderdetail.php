@@ -33,16 +33,16 @@ class Orderdetail
      * @ORM\ManyToOne(targetEntity=Totalorder::class, inversedBy="orderdetails")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $totalorder_id;
+    private $totalorder;
 
     /**
      * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="orderdetails")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $products_id;
+    private $products;
 
     /**
-     * @ORM\OneToMany(targetEntity=Delivery::class, mappedBy="orderdetail_id")
+     * @ORM\OneToMany(targetEntity=Delivery::class, mappedBy="orderdetail")
      */
     private $deliveries;
 
@@ -80,26 +80,26 @@ class Orderdetail
         return $this;
     }
 
-    public function getTotalorderId(): ?Totalorder
+    public function getTotalorder(): ?Totalorder
     {
-        return $this->totalorder_id;
+        return $this->totalorder;
     }
 
-    public function setTotalorderId(?Totalorder $totalorder_id): self
+    public function setTotalorder(?Totalorder $totalorder): self
     {
-        $this->totalorder_id = $totalorder_id;
+        $this->totalorder = $totalorder;
 
         return $this;
     }
 
-    public function getProductsId(): ?Products
+    public function getProducts(): ?Products
     {
-        return $this->products_id;
+        return $this->products;
     }
 
-    public function setProductsId(?Products $products_id): self
+    public function setProducts(?Products $products): self
     {
-        $this->products_id = $products_id;
+        $this->products = $products;
 
         return $this;
     }
@@ -116,7 +116,7 @@ class Orderdetail
     {
         if (!$this->deliveries->contains($delivery)) {
             $this->deliveries[] = $delivery;
-            $delivery->setOrderdetailId($this);
+            $delivery->setOrderdetail($this);
         }
 
         return $this;
@@ -126,8 +126,8 @@ class Orderdetail
     {
         if ($this->deliveries->removeElement($delivery)) {
             // set the owning side to null (unless already changed)
-            if ($delivery->getOrderdetailId() === $this) {
-                $delivery->setOrderdetailId(null);
+            if ($delivery->getOrderdetail() === $this) {
+                $delivery->setOrderdetail(null);
             }
         }
 

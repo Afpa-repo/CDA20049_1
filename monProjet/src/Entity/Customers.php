@@ -47,21 +47,21 @@ class Customers
     /**
      * @ORM\ManyToOne(targetEntity=Employee::class, inversedBy="customers")
      */
-    private $employee_id;
+    private $employee;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorietva::class, inversedBy="customers")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $categorietva_id;
+    private $categorietva;
 
     /**
-     * @ORM\OneToMany(targetEntity=Totalorder::class, mappedBy="customers_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Totalorder::class, mappedBy="customers", orphanRemoval=true)
      */
     private $totalorders;
 
     /**
-     * @ORM\OneToMany(targetEntity=Delivery::class, mappedBy="customers_id")
+     * @ORM\OneToMany(targetEntity=Delivery::class, mappedBy="customers")
      */
     private $deliveries;
 
@@ -138,26 +138,26 @@ class Customers
         return $this;
     }
 
-    public function getEmployeeId(): ?Employee
+    public function getEmployee(): ?Employee
     {
-        return $this->employee_id;
+        return $this->employee;
     }
 
-    public function setEmployeeId(?Employee $employee_id): self
+    public function setEmployee(?Employee $employee): self
     {
-        $this->employee_id = $employee_id;
+        $this->employee = $employee;
 
         return $this;
     }
 
-    public function getCategorietvaId(): ?Categorietva
+    public function getCategorietva(): ?Categorietva
     {
-        return $this->categorietva_id;
+        return $this->categorietva;
     }
 
-    public function setCategorietvaId(?Categorietva $categorietva_id): self
+    public function setCategorietva(?Categorietva $categorietva): self
     {
-        $this->categorietva_id = $categorietva_id;
+        $this->categorietva = $categorietva;
 
         return $this;
     }
@@ -174,7 +174,7 @@ class Customers
     {
         if (!$this->totalorders->contains($totalorder)) {
             $this->totalorders[] = $totalorder;
-            $totalorder->setCustomersId($this);
+            $totalorder->setCustomers($this);
         }
 
         return $this;
@@ -184,8 +184,8 @@ class Customers
     {
         if ($this->totalorders->removeElement($totalorder)) {
             // set the owning side to null (unless already changed)
-            if ($totalorder->getCustomersId() === $this) {
-                $totalorder->setCustomersId(null);
+            if ($totalorder->getCustomers() === $this) {
+                $totalorder->setCustomers(null);
             }
         }
 
@@ -204,7 +204,7 @@ class Customers
     {
         if (!$this->deliveries->contains($delivery)) {
             $this->deliveries[] = $delivery;
-            $delivery->setCustomersId($this);
+            $delivery->setCustomers($this);
         }
 
         return $this;
@@ -214,8 +214,8 @@ class Customers
     {
         if ($this->deliveries->removeElement($delivery)) {
             // set the owning side to null (unless already changed)
-            if ($delivery->getCustomersId() === $this) {
-                $delivery->setCustomersId(null);
+            if ($delivery->getCustomers() === $this) {
+                $delivery->setCustomers(null);
             }
         }
 

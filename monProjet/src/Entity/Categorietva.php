@@ -30,7 +30,7 @@ class Categorietva
     private $categorietva_nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="categorietva_id")
+     * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="categorietva")
      */
     private $customers;
 
@@ -80,7 +80,7 @@ class Categorietva
     {
         if (!$this->customers->contains($customer)) {
             $this->customers[] = $customer;
-            $customer->setCategorietvaId($this);
+            $customer->setCategorietva($this);
         }
 
         return $this;
@@ -90,11 +90,12 @@ class Categorietva
     {
         if ($this->customers->removeElement($customer)) {
             // set the owning side to null (unless already changed)
-            if ($customer->getCategorietvaId() === $this) {
-                $customer->setCategorietvaId(null);
+            if ($customer->getCategorietva() === $this) {
+                $customer->setCategorietva(null);
             }
         }
 
         return $this;
     }
+
 }

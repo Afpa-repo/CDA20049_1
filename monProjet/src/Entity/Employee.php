@@ -25,7 +25,7 @@ class Employee
     private $employee_name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="employee_id")
+     * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="employee")
      */
     private $customers;
 
@@ -63,7 +63,7 @@ class Employee
     {
         if (!$this->customers->contains($customer)) {
             $this->customers[] = $customer;
-            $customer->setEmployeeId($this);
+            $customer->setEmployee($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Employee
     {
         if ($this->customers->removeElement($customer)) {
             // set the owning side to null (unless already changed)
-            if ($customer->getEmployeeId() === $this) {
-                $customer->setEmployeeId(null);
+            if ($customer->getEmployee() === $this) {
+                $customer->setEmployee(null);
             }
         }
 

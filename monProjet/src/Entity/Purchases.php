@@ -41,13 +41,13 @@ class Purchases
      * @ORM\ManyToOne(targetEntity=Suppliers::class, inversedBy="purchases")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $suppliers_id;
+    private $suppliers;
 
     /**
      * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="purchases")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $products_id;
+    private $products;
 
     public function getId(): ?int
     {
@@ -102,26 +102,26 @@ class Purchases
         return $this;
     }
 
-    public function getSuppliersId(): ?Suppliers
+    public function getSuppliers(): ?Suppliers
     {
-        return $this->suppliers_id;
+        return $this->suppliers;
     }
 
-    public function setSuppliersId(?Suppliers $suppliers_id): self
+    public function setSuppliers(?Suppliers $suppliers): self
     {
-        $this->suppliers_id = $suppliers_id;
+        $this->suppliers = $suppliers;
 
         return $this;
     }
 
-    public function getProductsId(): ?Products
+    public function getProducts(): ?Products
     {
-        return $this->products_id;
+        return $this->products;
     }
 
-    public function setProductsId(?Products $products_id): self
+    public function setProducts(?Products $products): self
     {
-        $this->products_id = $products_id;
+        $this->products = $products;
 
         return $this;
     }

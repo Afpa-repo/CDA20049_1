@@ -25,7 +25,7 @@ class Supplierstype
     private $supplierstype_name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Suppliers::class, mappedBy="supplierstype_id")
+     * @ORM\OneToMany(targetEntity=Suppliers::class, mappedBy="supplierstype")
      */
     private $suppliers;
 
@@ -63,7 +63,7 @@ class Supplierstype
     {
         if (!$this->suppliers->contains($supplier)) {
             $this->suppliers[] = $supplier;
-            $supplier->setSupplierstypeId($this);
+            $supplier->setSupplierstype($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Supplierstype
     {
         if ($this->suppliers->removeElement($supplier)) {
             // set the owning side to null (unless already changed)
-            if ($supplier->getSupplierstypeId() === $this) {
-                $supplier->setSupplierstypeId(null);
+            if ($supplier->getSupplierstype() === $this) {
+                $supplier->setSupplierstype(null);
             }
         }
 

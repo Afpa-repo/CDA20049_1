@@ -48,10 +48,10 @@ class Suppliers
      * @ORM\ManyToOne(targetEntity=Supplierstype::class, inversedBy="suppliers")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $supplierstype_id;
+    private $supplierstype;
 
     /**
-     * @ORM\OneToMany(targetEntity=Purchases::class, mappedBy="suppliers_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Purchases::class, mappedBy="suppliers", orphanRemoval=true)
      */
     private $purchases;
 
@@ -125,14 +125,14 @@ class Suppliers
         return $this;
     }
 
-    public function getSupplierstypeId(): ?Supplierstype
+    public function getSupplierstype(): ?Supplierstype
     {
-        return $this->supplierstype_id;
+        return $this->supplierstype;
     }
 
-    public function setSupplierstypeId(?Supplierstype $supplierstype_id): self
+    public function setSupplierstype(?Supplierstype $supplierstype): self
     {
-        $this->supplierstype_id = $supplierstype_id;
+        $this->supplierstype = $supplierstype;
 
         return $this;
     }
@@ -149,7 +149,7 @@ class Suppliers
     {
         if (!$this->purchases->contains($purchase)) {
             $this->purchases[] = $purchase;
-            $purchase->setSuppliersId($this);
+            $purchase->setSuppliers($this);
         }
 
         return $this;
@@ -159,8 +159,8 @@ class Suppliers
     {
         if ($this->purchases->removeElement($purchase)) {
             // set the owning side to null (unless already changed)
-            if ($purchase->getSuppliersId() === $this) {
-                $purchase->setSuppliersId(null);
+            if ($purchase->getSuppliers() === $this) {
+                $purchase->setSuppliers(null);
             }
         }
 
