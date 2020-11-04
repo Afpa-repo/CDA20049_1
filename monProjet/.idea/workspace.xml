@@ -20,36 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/CDA20049_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CDA20049_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/monProjet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/monProjet.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027113851.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027123206.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027123948.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027131221.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027132642.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027140602.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027141212.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027142314.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201027142939.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categorietva.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorietva.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Delivery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderdetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Purchases.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Purchases.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Rubrique.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Rubrique.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Suppliers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Supplierstype.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Supplierstype.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Totalorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Totalorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CategorietvaFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/EmployeeFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/RubriqueFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/SupplierstypeFixtures.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,6 +192,8 @@
       <workItem from="1604319187740" duration="3416000" />
       <workItem from="1604322632786" duration="10111000" />
       <workItem from="1604401905613" duration="16856000" />
+      <workItem from="1604474142881" duration="1342000" />
+      <workItem from="1604475892240" duration="17800000" />
     </task>
     <servers />
   </component>
