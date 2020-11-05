@@ -5,10 +5,12 @@ namespace App\DataFixtures;
 use App\Entity\Categorietva;
 use App\Entity\Customers;
 use App\Entity\Employee;
+use App\Entity\Orderdetail;
 use App\Entity\Products;
 use App\Entity\Rubrique;
 use App\Entity\Suppliers;
 use App\Entity\Supplierstype;
+use App\Entity\Totalorder;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -20,6 +22,29 @@ class AppFixtures extends Fixture
 
         //to use faker to fill database in with fake data :
         $faker = \Faker\Factory::create('fr_FR');
+
+        //to create items of class categorietva :
+        $catparticulier = new Categorietva();
+        $catparticulier->setCategorietvaCoefficient("0.20")
+            ->setCategorietvaNom("Particuliers");
+
+        $catpro = new Categorietva();
+        $catpro->setCategorietvaCoefficient("0.10")
+            ->setCategorietvaNom("Professionnels");
+
+        $manager->persist($catparticulier);
+        $manager->persist($catpro);
+
+        //to create 3 items of class employee :
+        $emp1 = new Employee();
+        $emp1->setEmployeeName($faker->name);
+        $manager->persist($emp1);
+        $emp2 = new Employee();
+        $emp2->setEmployeeName($faker->name);
+        $manager->persist($emp2);
+        $emp3 = new Employee();
+        $emp3->setEmployeeName($faker->name);
+        $manager->persist($emp3);
 
         //to create items of class supplierstype :
 
@@ -51,41 +76,6 @@ class AppFixtures extends Fixture
                 ->setSuppliersZipcode($faker->postcode)
                 ->setSupplierstype($importateur);
             $manager->persist($supplier);
-        }
-
-        //to create items of class categorietva :
-        $catparticulier = new Categorietva();
-        $catparticulier->setCategorietvaCoefficient("0.20")
-            ->setCategorietvaNom("Particuliers");
-
-        $catpro = new Categorietva();
-        $catpro->setCategorietvaCoefficient("0.10")
-            ->setCategorietvaNom("Professionnels");
-
-        $manager->persist($catparticulier);
-        $manager->persist($catpro);
-
-        //to create items of class employee : on crée 4 employee avec noms "aléatoires" en français
-
-        for ($i = 0; $i < 4; $i++) {
-            $employee = new Employee();
-            $employee->setEmployeeName($faker->name);
-
-            $manager->persist($employee);
-
-            //for each employee I make 10 customers :
-            for($g = 0; $g<10; $g++){
-                $customer = new Customers();
-                $customer->setCustomersName($faker->name)
-                    ->setCustomersAddress($faker->streetAddress)
-                    ->setCustomersCity($faker->city)
-                    ->setCustomersZipcode($faker->postcode)
-                    ->setCustomersPhone($faker->phoneNumber)
-                    ->setCategorietva($catparticulier)
-                    ->setEmployee($employee);
-                $manager->persist($customer);
-            }
-
         }
 
         //to create the main product rubriques :
@@ -139,8 +129,8 @@ class AppFixtures extends Fixture
                 ->setParent($guitare);
             $manager->persist($sousrubrique);
 
-            //to create 10 products in each sous- rubrique :
-            for($m=1; $m<11; $m++){
+            //to create 4 products in each $guitare sous- rubrique :
+            for($m=1; $m<5; $m++){
                 $product = new Products();
                 $product->setProductsName('Produit n°'.$m)
                     ->setProductsDescription($faker->sentence())
@@ -150,6 +140,43 @@ class AppFixtures extends Fixture
                     ->setProductsPicture($faker->imageUrl())
                     ->setRubrique($sousrubrique);
                 $manager->persist($product);
+
+                //to create fake orders of each product - only for customers of emp2:
+
+                for($g = 0; $g<2; $g++){
+                        $customer = new Customers();
+                        $customer->setCustomersName($faker->name)
+                            ->setCustomersAddress($faker->streetAddress)
+                            ->setCustomersCity($faker->city)
+                            ->setCustomersZipcode($faker->postcode)
+                            ->setCustomersPhone($faker->phoneNumber)
+                            ->setCategorietva($catparticulier)
+                            ->setEmployee($emp2);
+                        $manager->persist($customer);
+
+                        //to make 5 fake orders :
+                        for ($o=1; $o<6; $o++){
+                            $order = new Totalorder();
+                            $order->setTotalorderBilladdress($faker->streetAddress)
+                                ->setTotalorderDate($faker->dateTimeThisYear)
+                                ->setTotalorderDeliveryaddress($faker->streetAddress)
+                                ->setTotalorderInvoicedate($faker->dateTimeThisMonth)
+                                ->setTotalorderInvoicenb($faker->randomNumber(6))
+                                ->setCustomers($customer);
+                            $manager->persist($order);
+
+                            //for each order I make 3 orderdetail items :
+                            for ($d=1; $d<4; $d++){
+                                $detail = new Orderdetail();
+                                $detail->setOrderdetailPrice($faker->randomNumber(3))
+                                    ->setOrderdetailQuantity($faker->randomDigitNotNull)
+                                    ->setTotalorder($order)
+                                    ->setProducts($product);
+                                $manager->persist($detail);
+                            }
+                        }
+                    }
+
             }
         }
         for ($k=1; $k<4; $k++){
@@ -159,8 +186,8 @@ class AppFixtures extends Fixture
                 ->setParent($piano);
             $manager->persist($sousrubrique);
 
-            //to create 10 products in each sous- rubrique :
-            for($m=1; $m<11; $m++){
+            //to create 4 products in each $piano sous- rubrique :
+            for($m=1; $m<5; $m++){
                 $product = new Products();
                 $product->setProductsName('Produit n°'.$m)
                     ->setProductsDescription($faker->sentence())
@@ -170,6 +197,43 @@ class AppFixtures extends Fixture
                     ->setProductsPicture($faker->imageUrl())
                     ->setRubrique($sousrubrique);
                 $manager->persist($product);
+
+                //to create fake orders of that product :
+
+                //2 clients de $emp3
+                for($g = 0; $g<2; $g++){
+                    $customer = new Customers();
+                    $customer->setCustomersName($faker->name)
+                            ->setCustomersAddress($faker->streetAddress)
+                            ->setCustomersCity($faker->city)
+                            ->setCustomersZipcode($faker->postcode)
+                            ->setCustomersPhone($faker->phoneNumber)
+                            ->setCategorietva($catparticulier)
+                            ->setEmployee($emp3);
+                    $manager->persist($customer);
+
+                    //for each of these customers I make 5 fake orders :
+                    for ($o=1; $o<6; $o++){
+                        $order = new Totalorder();
+                        $order->setTotalorderBilladdress($faker->streetAddress)
+                            ->setTotalorderDate($faker->dateTimeThisYear)
+                            ->setTotalorderDeliveryaddress($faker->streetAddress)
+                            ->setTotalorderInvoicedate($faker->dateTimeThisMonth)
+                            ->setTotalorderInvoicenb($faker->randomNumber(6))
+                            ->setCustomers($customer);
+                        $manager->persist($order);
+
+                        //for each order I make 3 orderdetail items :
+                        for ($d=1; $d<4; $d++){
+                            $detail = new Orderdetail();
+                            $detail->setOrderdetailPrice($faker->randomNumber(3))
+                                ->setOrderdetailQuantity($faker->randomDigitNotNull)
+                                ->setTotalorder($order)
+                                ->setProducts($product);
+                            $manager->persist($detail);
+                        }
+                    }
+                }
             }
         }
         for ($l=1; $l<4; $l++){
@@ -179,8 +243,8 @@ class AppFixtures extends Fixture
                 ->setParent($saxo);
             $manager->persist($sousrubrique);
 
-            //to create 10 products in each sous- rubrique :
-            for($m=1; $m<11; $m++){
+            //to create 4 products in each $saxo sous- rubrique :
+            for($m=1; $m<5; $m++){
                 $product = new Products();
                 $product->setProductsName('Produit n°'.$m)
                     ->setProductsDescription($faker->sentence())
@@ -190,13 +254,48 @@ class AppFixtures extends Fixture
                     ->setProductsPicture($faker->imageUrl())
                     ->setRubrique($sousrubrique);
                 $manager->persist($product);
+
+                //to create fake orders of that product :
+
+                //for $emp1 employee I make 5 customers :
+                for($g = 0; $g<5; $g++){
+                    $customer = new Customers();
+                    $customer->setCustomersName($faker->name)
+                        ->setCustomersAddress($faker->streetAddress)
+                        ->setCustomersCity($faker->city)
+                        ->setCustomersZipcode($faker->postcode)
+                        ->setCustomersPhone($faker->phoneNumber)
+                        ->setCategorietva($catparticulier)
+                        ->setEmployee($emp1);
+                    $manager->persist($customer);
+
+                    //for each customer I make 5 fake orders :
+                    for ($o=1; $o<6; $o++){
+                        $order = new Totalorder();
+                        $order->setTotalorderBilladdress($faker->streetAddress)
+                            ->setTotalorderDate($faker->dateTimeThisYear)
+                            ->setTotalorderDeliveryaddress($faker->streetAddress)
+                            ->setTotalorderInvoicedate($faker->dateTimeThisMonth)
+                            ->setTotalorderInvoicenb($faker->randomNumber(6))
+                            ->setCustomers($customer);
+                        $manager->persist($order);
+
+                        //for each order I make 3 orderdetail items :
+                        for ($d=1; $d<4; $d++){
+                            $detail = new Orderdetail();
+                            $detail->setOrderdetailPrice($faker->randomNumber(3))
+                                ->setOrderdetailQuantity($faker->randomDigitNotNull)
+                                ->setTotalorder($order)
+                                ->setProducts($product);
+                            $manager->persist($detail);
+                        }
+                    }
+                }
             }
         }
 
-        //TODO 051120 :
+        //when or if needed, add datafixtures for table purchases and delivery :
         //purchases need suppliers and products
-        //totalorder needs customers
-        //orderdetail needs totalorder and products
         //delivery needs customers and orderdetail
 
         $manager->flush();

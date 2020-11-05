@@ -56,24 +56,24 @@ class Orderdetail
         return $this->id;
     }
 
-    public function getOrderdetailPrice(): ?string
+    public function getOrderdetailPrice(): ?int
     {
         return $this->orderdetail_price;
     }
 
-    public function setOrderdetailPrice(string $orderdetail_price): self
+    public function setOrderdetailPrice(int $orderdetail_price): self
     {
         $this->orderdetail_price = $orderdetail_price;
 
         return $this;
     }
 
-    public function getOrderdetailQuantity(): ?string
+    public function getOrderdetailQuantity(): ?int
     {
         return $this->orderdetail_quantity;
     }
 
-    public function setOrderdetailQuantity(string $orderdetail_quantity): self
+    public function setOrderdetailQuantity(int $orderdetail_quantity): self
     {
         $this->orderdetail_quantity = $orderdetail_quantity;
 

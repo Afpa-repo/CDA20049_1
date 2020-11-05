@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21129aa7-32a9-41cb-afd9-ee0eee3ede02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CategorietvaFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/EmployeeFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/RubriqueFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/SupplierstypeFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderdetail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +192,7 @@
       <workItem from="1604401905613" duration="16856000" />
       <workItem from="1604474142881" duration="1342000" />
       <workItem from="1604475892240" duration="17800000" />
+      <workItem from="1604561900727" duration="9671000" />
     </task>
     <servers />
   </component>
