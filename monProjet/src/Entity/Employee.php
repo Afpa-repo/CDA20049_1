@@ -22,7 +22,7 @@ class Employee
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $employee_name;
+    private $employeeName;
 
     /**
      * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="employee")
@@ -41,12 +41,12 @@ class Employee
 
     public function getEmployeeName(): ?string
     {
-        return $this->employee_name;
+        return $this->employeeName;
     }
 
-    public function setEmployeeName(string $employee_name): self
+    public function setEmployeeName(string $employeeName): self
     {
-        $this->employee_name = $employee_name;
+        $this->employeeName = $employeeName;
 
         return $this;
     }

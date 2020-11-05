@@ -22,7 +22,7 @@ class Supplierstype
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $supplierstype_name;
+    private $supplierstypeName;
 
     /**
      * @ORM\OneToMany(targetEntity=Suppliers::class, mappedBy="supplierstype")
@@ -41,12 +41,12 @@ class Supplierstype
 
     public function getSupplierstypeName(): ?string
     {
-        return $this->supplierstype_name;
+        return $this->supplierstypeName;
     }
 
-    public function setSupplierstypeName(string $supplierstype_name): self
+    public function setSupplierstypeName(string $supplierstypeName): self
     {
-        $this->supplierstype_name = $supplierstype_name;
+        $this->supplierstypeName = $supplierstypeName;
 
         return $this;
     }

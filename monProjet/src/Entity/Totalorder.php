@@ -22,37 +22,37 @@ class Totalorder
     /**
      * @ORM\Column(type="date")
      */
-    private $totalorder_date;
+    private $totalorderDate;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $totalorder_billaddress;
+    private $totalorderBilladdress;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $totalorder_deliveryaddress;
+    private $totalorderDeliveryaddress;
 
     /**
      * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
      */
-    private $totalorder_discount;
+    private $totalorderDiscount;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $totalorder_invoicenb;
+    private $totalorderInvoicenb;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $totalorder_invoicedate;
+    private $totalorderInvoicedate;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $totalorder_deadline;
+    private $totalorderDeadline;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customers::class, inversedBy="totalorders")
@@ -77,84 +77,84 @@ class Totalorder
 
     public function getTotalorderDate(): ?\DateTimeInterface
     {
-        return $this->totalorder_date;
+        return $this->totalorderDate;
     }
 
-    public function setTotalorderDate(\DateTimeInterface $totalorder_date): self
+    public function setTotalorderDate(\DateTimeInterface $totalorderDate): self
     {
-        $this->totalorder_date = $totalorder_date;
+        $this->totalorderDate = $totalorderDate;
 
         return $this;
     }
 
     public function getTotalorderBilladdress(): ?string
     {
-        return $this->totalorder_billaddress;
+        return $this->totalorderBilladdress;
     }
 
-    public function setTotalorderBilladdress(?string $totalorder_billaddress): self
+    public function setTotalorderBilladdress(?string $totalorderBilladdress): self
     {
-        $this->totalorder_billaddress = $totalorder_billaddress;
+        $this->totalorderBilladdress = $totalorderBilladdress;
 
         return $this;
     }
 
     public function getTotalorderDeliveryaddress(): ?string
     {
-        return $this->totalorder_deliveryaddress;
+        return $this->totalorderDeliveryaddress;
     }
 
-    public function setTotalorderDeliveryaddress(?string $totalorder_deliveryaddress): self
+    public function setTotalorderDeliveryaddress(?string $totalorderDeliveryaddress): self
     {
-        $this->totalorder_deliveryaddress = $totalorder_deliveryaddress;
+        $this->totalorderDeliveryaddress = $totalorderDeliveryaddress;
 
         return $this;
     }
 
     public function getTotalorderDiscount(): ?string
     {
-        return $this->totalorder_discount;
+        return $this->totalorderDiscount;
     }
 
-    public function setTotalorderDiscount(?string $totalorder_discount): self
+    public function setTotalorderDiscount(?string $totalorderDiscount): self
     {
-        $this->totalorder_discount = $totalorder_discount;
+        $this->totalorderDiscount = $totalorderDiscount;
 
         return $this;
     }
 
     public function getTotalorderInvoicenb(): ?int
     {
-        return $this->totalorder_invoicenb;
+        return $this->totalorderInvoicenb;
     }
 
-    public function setTotalorderInvoicenb(?int $totalorder_invoicenb): self
+    public function setTotalorderInvoicenb(?int $totalorderInvoicenb): self
     {
-        $this->totalorder_invoicenb = $totalorder_invoicenb;
+        $this->totalorderInvoicenb = $totalorderInvoicenb;
 
         return $this;
     }
 
     public function getTotalorderInvoicedate(): ?\DateTimeInterface
     {
-        return $this->totalorder_invoicedate;
+        return $this->totalorderInvoicedate;
     }
 
-    public function setTotalorderInvoicedate(?\DateTimeInterface $totalorder_invoicedate): self
+    public function setTotalorderInvoicedate(?\DateTimeInterface $totalorderInvoicedate): self
     {
-        $this->totalorder_invoicedate = $totalorder_invoicedate;
+        $this->totalorderInvoicedate = $totalorderInvoicedate;
 
         return $this;
     }
 
     public function getTotalorderDeadline(): ?\DateTimeInterface
     {
-        return $this->totalorder_deadline;
+        return $this->totalorderDeadline;
     }
 
-    public function setTotalorderDeadline(?\DateTimeInterface $totalorder_deadline): self
+    public function setTotalorderDeadline(?\DateTimeInterface $totalorderDeadline): self
     {
-        $this->totalorder_deadline = $totalorder_deadline;
+        $this->totalorderDeadline = $totalorderDeadline;
 
         return $this;
     }

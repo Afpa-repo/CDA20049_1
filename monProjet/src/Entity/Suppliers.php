@@ -22,27 +22,27 @@ class Suppliers
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $suppliers_name;
+    private $suppliersName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $suppliers_address;
+    private $suppliersAddress;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
      */
-    private $suppliers_zipcode;
+    private $suppliersZipcode;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      */
-    private $suppliers_city;
+    private $suppliersCity;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $suppliers_phone;
+    private $suppliersPhone;
 
     /**
      * @ORM\ManyToOne(targetEntity=Supplierstype::class, inversedBy="suppliers")
@@ -67,60 +67,60 @@ class Suppliers
 
     public function getSuppliersName(): ?string
     {
-        return $this->suppliers_name;
+        return $this->suppliersName;
     }
 
-    public function setSuppliersName(string $suppliers_name): self
+    public function setSuppliersName(string $suppliersName): self
     {
-        $this->suppliers_name = $suppliers_name;
+        $this->suppliersName = $suppliersName;
 
         return $this;
     }
 
     public function getSuppliersAddress(): ?string
     {
-        return $this->suppliers_address;
+        return $this->suppliersAddress;
     }
 
-    public function setSuppliersAddress(?string $suppliers_address): self
+    public function setSuppliersAddress(?string $suppliersAddress): self
     {
-        $this->suppliers_address = $suppliers_address;
+        $this->suppliersAddress = $suppliersAddress;
 
         return $this;
     }
 
     public function getSuppliersZipcode(): ?string
     {
-        return $this->suppliers_zipcode;
+        return $this->suppliersZipcode;
     }
 
-    public function setSuppliersZipcode(?string $suppliers_zipcode): self
+    public function setSuppliersZipcode(?string $suppliersZipcode): self
     {
-        $this->suppliers_zipcode = $suppliers_zipcode;
+        $this->suppliersZipcode = $suppliersZipcode;
 
         return $this;
     }
 
     public function getSuppliersCity(): ?string
     {
-        return $this->suppliers_city;
+        return $this->suppliersCity;
     }
 
-    public function setSuppliersCity(?string $suppliers_city): self
+    public function setSuppliersCity(?string $suppliersCity): self
     {
-        $this->suppliers_city = $suppliers_city;
+        $this->suppliersCity = $suppliersCity;
 
         return $this;
     }
 
     public function getSuppliersPhone(): ?string
     {
-        return $this->suppliers_phone;
+        return $this->suppliersPhone;
     }
 
-    public function setSuppliersPhone(?string $suppliers_phone): self
+    public function setSuppliersPhone(?string $suppliersPhone): self
     {
-        $this->suppliers_phone = $suppliers_phone;
+        $this->suppliersPhone = $suppliersPhone;
 
         return $this;
     }

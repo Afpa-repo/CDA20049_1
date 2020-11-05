@@ -22,12 +22,12 @@ class Rubrique
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $rubrique_name;
+    private $rubriqueName;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $rubrique_picture;
+    private $rubriquePicture;
 
     /**
      * @ORM\ManyToOne(targetEntity=Rubrique::class)
@@ -51,24 +51,24 @@ class Rubrique
 
     public function getRubriqueName(): ?string
     {
-        return $this->rubrique_name;
+        return $this->rubriqueName;
     }
 
-    public function setRubriqueName(?string $rubrique_name): self
+    public function setRubriqueName(?string $rubriqueName): self
     {
-        $this->rubrique_name = $rubrique_name;
+        $this->rubriqueName = $rubriqueName;
 
         return $this;
     }
 
     public function getRubriquePicture(): ?string
     {
-        return $this->rubrique_picture;
+        return $this->rubriquePicture;
     }
 
-    public function setRubriquePicture(?string $rubrique_picture): self
+    public function setRubriquePicture(?string $rubriquePicture): self
     {
-        $this->rubrique_picture = $rubrique_picture;
+        $this->rubriquePicture = $rubriquePicture;
 
         return $this;
     }

@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CatalogueController!{% endblock %}
+{% block title %}Catalogue de nos produits{% endblock %}
 
 {% block body %}
     <section class="articles">
+        {{ dump(obj) }}
+        <div class="card">
+            <div class="card-header">{{ obj.rubriqueName }}</div>
+            <div class="card-body">Content</div>
+            <div class="card-footer">Footer</div>
+        </div>
+
         <article>
             <h2>titre de l'article</h2>
             <div class="metadata">Des data</div>

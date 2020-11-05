@@ -2,15 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b200fa9d-f43e-4e48-af7f-975cf57fe8e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/monProjet/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monProjet/src/DataFixtures/RubriqueFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/DataFixtures/RubriqueFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Controller/CatalogueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Controller/CatalogueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Categorietva.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Categorietva.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Customers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Delivery.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Delivery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Orderdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Orderdetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Purchases.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Purchases.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Rubrique.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Rubrique.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Suppliers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Supplierstype.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Supplierstype.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/src/Entity/Totalorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/src/Entity/Totalorder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monProjet/templates/catalogue/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/monProjet/templates/catalogue/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/monProjet/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -132,6 +144,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -144,6 +162,8 @@
       <option name="presentableId" value="Default" />
       <updated>1604475498497</updated>
       <workItem from="1604475500447" duration="352000" />
+      <workItem from="1604507131480" duration="488000" />
+      <workItem from="1604571736530" duration="6913000" />
     </task>
     <servers />
   </component>

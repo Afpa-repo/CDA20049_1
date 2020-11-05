@@ -22,12 +22,12 @@ class Categorietva
     /**
      * @ORM\Column(type="decimal", precision=4, scale=2)
      */
-    private $categorietva_coefficient;
+    private $categorietvaCoefficient;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $categorietva_nom;
+    private $categorietvaNom;
 
     /**
      * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="categorietva")
@@ -46,24 +46,24 @@ class Categorietva
 
     public function getCategorietvaCoefficient(): ?string
     {
-        return $this->categorietva_coefficient;
+        return $this->categorietvaCoefficient;
     }
 
-    public function setCategorietvaCoefficient(string $categorietva_coefficient): self
+    public function setCategorietvaCoefficient(string $categorietvaCoefficient): self
     {
-        $this->categorietva_coefficient = $categorietva_coefficient;
+        $this->categorietvaCoefficient = $categorietvaCoefficient;
 
         return $this;
     }
 
     public function getCategorietvaNom(): ?string
     {
-        return $this->categorietva_nom;
+        return $this->categorietvaNom;
     }
 
-    public function setCategorietvaNom(?string $categorietva_nom): self
+    public function setCategorietvaNom(?string $categorietvaNom): self
     {
-        $this->categorietva_nom = $categorietva_nom;
+        $this->categorietvaNom = $categorietvaNom;
 
         return $this;
     }

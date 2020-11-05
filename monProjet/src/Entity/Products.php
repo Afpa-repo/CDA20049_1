@@ -22,32 +22,32 @@ class Products
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $products_name;
+    private $productsName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $products_description;
+    private $productsDescription;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $products_stock;
+    private $productsStock;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $products_picture;
+    private $productsPicture;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $products_status;
+    private $productsStatus;
 
     /**
      * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
      */
-    private $products_price;
+    private $productsPrice;
 
     /**
      * @ORM\OneToMany(targetEntity=Orderdetail::class, mappedBy="products", orphanRemoval=true)
@@ -78,72 +78,72 @@ class Products
 
     public function getProductsName(): ?string
     {
-        return $this->products_name;
+        return $this->productsName;
     }
 
-    public function setProductsName(string $products_name): self
+    public function setProductsName(string $productsName): self
     {
-        $this->products_name = $products_name;
+        $this->productsName = $productsName;
 
         return $this;
     }
 
     public function getProductsDescription(): ?string
     {
-        return $this->products_description;
+        return $this->productsDescription;
     }
 
-    public function setProductsDescription(?string $products_description): self
+    public function setProductsDescription(?string $productsDescription): self
     {
-        $this->products_description = $products_description;
+        $this->productsDescription = $productsDescription;
 
         return $this;
     }
 
     public function getProductsStock(): ?int
     {
-        return $this->products_stock;
+        return $this->productsStock;
     }
 
-    public function setProductsStock(?int $products_stock): self
+    public function setProductsStock(?int $productsStock): self
     {
-        $this->products_stock = $products_stock;
+        $this->productsStock = $productsStock;
 
         return $this;
     }
 
     public function getProductsPicture(): ?string
     {
-        return $this->products_picture;
+        return $this->productsPicture;
     }
 
-    public function setProductsPicture(?string $products_picture): self
+    public function setProductsPicture(?string $productsPicture): self
     {
-        $this->products_picture = $products_picture;
+        $this->productsPicture = $productsPicture;
 
         return $this;
     }
 
     public function getProductsStatus(): ?bool
     {
-        return $this->products_status;
+        return $this->productsStatus;
     }
 
-    public function setProductsStatus(?bool $products_status): self
+    public function setProductsStatus(?bool $productsStatus): self
     {
-        $this->products_status = $products_status;
+        $this->productsStatus = $productsStatus;
 
         return $this;
     }
 
     public function getProductsPrice(): ?string
     {
-        return $this->products_price;
+        return $this->productsPrice;
     }
 
-    public function setProductsPrice(?string $products_price): self
+    public function setProductsPrice(?string $productsPrice): self
     {
-        $this->products_price = $products_price;
+        $this->productsPrice = $productsPrice;
 
         return $this;
     }

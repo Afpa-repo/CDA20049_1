@@ -22,12 +22,12 @@ class Orderdetail
     /**
      * @ORM\Column(type="decimal", precision=8, scale=2)
      */
-    private $orderdetail_price;
+    private $orderdetailPrice;
 
     /**
      * @ORM\Column(type="decimal", precision=4, scale=2)
      */
-    private $orderdetail_quantity;
+    private $orderdetailQuantity;
 
     /**
      * @ORM\ManyToOne(targetEntity=Totalorder::class, inversedBy="orderdetails")
@@ -58,24 +58,24 @@ class Orderdetail
 
     public function getOrderdetailPrice(): ?int
     {
-        return $this->orderdetail_price;
+        return $this->orderdetailPrice;
     }
 
-    public function setOrderdetailPrice(int $orderdetail_price): self
+    public function setOrderdetailPrice(int $orderdetailPrice): self
     {
-        $this->orderdetail_price = $orderdetail_price;
+        $this->orderdetailPrice = $orderdetailPrice;
 
         return $this;
     }
 
     public function getOrderdetailQuantity(): ?int
     {
-        return $this->orderdetail_quantity;
+        return $this->orderdetailQuantity;
     }
 
-    public function setOrderdetailQuantity(int $orderdetail_quantity): self
+    public function setOrderdetailQuantity(int $orderdetailQuantity): self
     {
-        $this->orderdetail_quantity = $orderdetail_quantity;
+        $this->orderdetailQuantity = $orderdetailQuantity;
 
         return $this;
     }

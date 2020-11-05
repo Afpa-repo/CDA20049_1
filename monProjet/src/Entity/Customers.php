@@ -22,27 +22,27 @@ class Customers
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $customers_name;
+    private $customersName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $customers_address;
+    private $customersAddress;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
      */
-    private $customers_zipcode;
+    private $customersZipcode;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $customers_city;
+    private $customersCity;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $customers_phone;
+    private $customersPhone;
 
     /**
      * @ORM\ManyToOne(targetEntity=Employee::class, inversedBy="customers")
@@ -80,60 +80,60 @@ class Customers
 
     public function getCustomersName(): ?string
     {
-        return $this->customers_name;
+        return $this->customersName;
     }
 
-    public function setCustomersName(string $customers_name): self
+    public function setCustomersName(string $customersName): self
     {
-        $this->customers_name = $customers_name;
+        $this->customersName = $customersName;
 
         return $this;
     }
 
     public function getCustomersAddress(): ?string
     {
-        return $this->customers_address;
+        return $this->customersAddress;
     }
 
-    public function setCustomersAddress(?string $customers_address): self
+    public function setCustomersAddress(?string $customersAddress): self
     {
-        $this->customers_address = $customers_address;
+        $this->customersAddress = $customersAddress;
 
         return $this;
     }
 
     public function getCustomersZipcode(): ?string
     {
-        return $this->customers_zipcode;
+        return $this->customersZipcode;
     }
 
-    public function setCustomersZipcode(?string $customers_zipcode): self
+    public function setCustomersZipcode(?string $customersZipcode): self
     {
-        $this->customers_zipcode = $customers_zipcode;
+        $this->customersZipcode = $customersZipcode;
 
         return $this;
     }
 
     public function getCustomersCity(): ?string
     {
-        return $this->customers_city;
+        return $this->customersCity;
     }
 
-    public function setCustomersCity(?string $customers_city): self
+    public function setCustomersCity(?string $customersCity): self
     {
-        $this->customers_city = $customers_city;
+        $this->customersCity = $customersCity;
 
         return $this;
     }
 
     public function getCustomersPhone(): ?string
     {
-        return $this->customers_phone;
+        return $this->customersPhone;
     }
 
-    public function setCustomersPhone(?string $customers_phone): self
+    public function setCustomersPhone(?string $customersPhone): self
     {
-        $this->customers_phone = $customers_phone;
+        $this->customersPhone = $customersPhone;
 
         return $this;
     }

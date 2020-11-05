@@ -20,22 +20,22 @@ class Purchases
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $purchases_suppliersref;
+    private $purchasesSuppliersref;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $purchases_date;
+    private $purchasesDate;
 
     /**
      * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
      */
-    private $purchases_price;
+    private $purchasesPrice;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $purchases_quantity;
+    private $purchasesQuantity;
 
     /**
      * @ORM\ManyToOne(targetEntity=Suppliers::class, inversedBy="purchases")
@@ -56,48 +56,48 @@ class Purchases
 
     public function getPurchasesSuppliersref(): ?string
     {
-        return $this->purchases_suppliersref;
+        return $this->purchasesSuppliersref;
     }
 
-    public function setPurchasesSuppliersref(?string $purchases_suppliersref): self
+    public function setPurchasesSuppliersref(?string $purchasesSuppliersref): self
     {
-        $this->purchases_suppliersref = $purchases_suppliersref;
+        $this->purchasesSuppliersref = $purchasesSuppliersref;
 
         return $this;
     }
 
     public function getPurchasesDate(): ?\DateTimeInterface
     {
-        return $this->purchases_date;
+        return $this->purchasesDate;
     }
 
-    public function setPurchasesDate(?\DateTimeInterface $purchases_date): self
+    public function setPurchasesDate(?\DateTimeInterface $purchasesDate): self
     {
-        $this->purchases_date = $purchases_date;
+        $this->purchasesDate = $purchasesDate;
 
         return $this;
     }
 
     public function getPurchasesPrice(): ?string
     {
-        return $this->purchases_price;
+        return $this->purchasesPrice;
     }
 
-    public function setPurchasesPrice(?string $purchases_price): self
+    public function setPurchasesPrice(?string $purchasesPrice): self
     {
-        $this->purchases_price = $purchases_price;
+        $this->purchasesPrice = $purchasesPrice;
 
         return $this;
     }
 
     public function getPurchasesQuantity(): ?int
     {
-        return $this->purchases_quantity;
+        return $this->purchasesQuantity;
     }
 
-    public function setPurchasesQuantity(?int $purchases_quantity): self
+    public function setPurchasesQuantity(?int $purchasesQuantity): self
     {
-        $this->purchases_quantity = $purchases_quantity;
+        $this->purchasesQuantity = $purchasesQuantity;
 
         return $this;
     }

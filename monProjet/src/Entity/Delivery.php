@@ -20,12 +20,12 @@ class Delivery
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $delivery_date;
+    private $deliveryDate;
 
     /**
      * @ORM\Column(type="decimal", precision=6, scale=2, nullable=true)
      */
-    private $delivery_quantity;
+    private $deliveryQuantity;
 
     /**
      * @ORM\ManyToOne(targetEntity=Orderdetail::class, inversedBy="deliveries")
@@ -44,24 +44,24 @@ class Delivery
 
     public function getDeliveryDate(): ?\DateTimeInterface
     {
-        return $this->delivery_date;
+        return $this->deliveryDate;
     }
 
-    public function setDeliveryDate(?\DateTimeInterface $delivery_date): self
+    public function setDeliveryDate(?\DateTimeInterface $deliveryDate): self
     {
-        $this->delivery_date = $delivery_date;
+        $this->deliveryDate = $deliveryDate;
 
         return $this;
     }
 
     public function getDeliveryQuantity(): ?string
     {
-        return $this->delivery_quantity;
+        return $this->deliveryQuantity;
     }
 
-    public function setDeliveryQuantity(?string $delivery_quantity): self
+    public function setDeliveryQuantity(?string $deliveryQuantity): self
     {
-        $this->delivery_quantity = $delivery_quantity;
+        $this->deliveryQuantity = $deliveryQuantity;
 
         return $this;
     }
