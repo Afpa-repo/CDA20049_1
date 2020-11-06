@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Rubrique;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,16 +14,13 @@ class CatalogueController extends AbstractController
      */
     public function index(): Response
     {
+        $repo = $this->getDoctrine()->getRepository(Rubrique::class);
+        $obj = $repo->findOneBy(['id' => 18]);
+
         return $this->render('catalogue/index.html.twig', [
             'controller_name' => 'CatalogueController',
+            'obj' =>  $obj
         ]);
-    }
-
-    /**
-     * @Route("/", name="home")
-     */
-    public function home() {
-        return $this->render('catalogue/home.html.twig', []);
     }
 
     /**
