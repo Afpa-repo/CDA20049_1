@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des fournisseurs{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des fournisseurs :</h1>
+    {% for supplier in suppliers %}
+        <h2>{{ supplier.suppliers_name }}</h2>
+    {% endfor %}
+
+
+{% endblock %}
